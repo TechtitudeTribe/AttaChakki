@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/colorAccent"
+    tools:context=".VerifyPhone"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        app:layout_constraintVertical_bias="0.469"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/message"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="127dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mess"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginTop="294dp"
+        android:layout_marginStart="172dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="WAIT FOR THE CODE I SENT YOU"
+        android:id="@+id/message"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/code"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="162dp"
+        android:text="I Sent you a code , verify your phone number by entering it below."
+        android:id="@+id/mess"
+        app:layout_constraintTop_toBottomOf="@+id/message"/>
+
+    <EditText
+        android:background="@drawable/background"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="88dp"
+        android:id="@+id/code"
+        app:layout_constraintTop_toBottomOf="@+id/mess"
+        android:paddingLeft="10dp"
+        android:hint="Enter code"
+        android:inputType="phone"
+        android:ems="10"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="296dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="157dp"
+        android:text="Sign In"
+        android:id="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/code"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="182dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="182dp"
+        android:id="@+id/progress"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

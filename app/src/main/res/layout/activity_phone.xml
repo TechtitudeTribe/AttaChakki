@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorAccent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:textColor="#000000"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:text="May I ask your Phone Number ?"/>
+
+    <EditText
+        android:background="@drawable/background"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:layout_margin="40dp"
+        android:hint="Enter your Number"
+        android:id="@+id/number"/>
+
+    <Button
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Continue"
+        android:id="@+id/button"/>
+
+</LinearLayout>

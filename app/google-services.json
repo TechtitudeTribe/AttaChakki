@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48128332967",
+    "firebase_url": "https://attachakki-8868d.firebaseio.com",
+    "project_id": "attachakki-8868d",
+    "storage_bucket": "attachakki-8868d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48128332967:android:d124b8cfa3d25c87c67782",
+        "android_client_info": {
+          "package_name": "com.example.attachakki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48128332967-a2tjk8tael8f58p5807b6m37qjgtnjnk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.attachakki",
+            "certificate_hash": "077846275ef68d12c16629ca0878310dfa875418"
+          }
+        },
+        {
+          "client_id": "48128332967-6i77iv4rbib4t2pmniaeouci9ok2h44t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjx61BaCRgewWhMvuRrgTgmeKqm7ZPypQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48128332967-6i77iv4rbib4t2pmniaeouci9ok2h44t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
