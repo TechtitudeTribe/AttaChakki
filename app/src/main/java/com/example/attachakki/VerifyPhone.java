@@ -19,7 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class VerifyPhone extends AppCompatActivity {
@@ -29,6 +32,8 @@ public class VerifyPhone extends AppCompatActivity {
     private ProgressBar progressBar;
     private EditText editText;
     private Button signIn;
+    private DatabaseReference stuRef;
+    private String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,9 @@ public class VerifyPhone extends AppCompatActivity {
         progressBar=findViewById(R.id.progress);
         editText=findViewById(R.id.code);
         signIn=findViewById(R.id.button);
+        currentUser = mAuth.getCurrentUser().getUid();
+        stuRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser);
+
 
         String phonenumber=getIntent().getStringExtra("phonenumber");
         sendVerificationCode(phonenumber);
@@ -69,23 +77,42 @@ public class VerifyPhone extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            String email=getIntent().getStringExtra("emailId");
-                            String pwd=getIntent().getStringExtra("password");
-                            mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(VerifyPhone.this, new OnCompleteListener<AuthResult>() {
+                        if(task.isSuccessful()) {
+                            String first = getIntent().getStringExtra("firstName");
+                            String last = getIntent().getStringExtra("lastName");
+                            String comp = getIntent().getStringExtra("company");
+
+                            HashMap upload = new HashMap();
+                            upload.put("First Name", first);
+                            upload.put("Last Name", last);
+                            upload.put("Company", comp);
+
+                            stuRef.updateChildren(upload).addOnCompleteListener(new OnCompleteListener() {
                                 @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (!task.isSuccessful()) {
-                                        Toast.makeText(VerifyPhone.this, "SignUp Unsuccessful, please Try Again", Toast.LENGTH_SHORT).show();
+                                public void onComplete(@NonNull Task task) {
+                                    if (task.isSuccessful()) {
+                                        String email = getIntent().getStringExtra("emailId");
+                                        String pwd = getIntent().getStringExtra("password");
+                                        mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(VerifyPhone.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (!task.isSuccessful()) {
+                                                    Toast.makeText(VerifyPhone.this, "SignUp Unsuccessful, please Try Again", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Intent intent = new Intent(VerifyPhone.this, HomeActivity.class);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    startActivity(intent);
+                                                }
+                                            }
+
+                                        });
+
                                     } else {
-                                        Intent intent = new Intent(VerifyPhone.this, HomeActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
+                                        String message = task.getException().getMessage();
+                                        Toast.makeText(getApplicationContext(), "Error Occurred : " + message, Toast.LENGTH_SHORT).show();
                                     }
                                 }
-
                             });
-
                         }
                         else{
                             Toast.makeText(VerifyPhone.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
