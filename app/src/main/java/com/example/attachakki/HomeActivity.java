@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mContacts= new ArrayList<>();
 
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Contacts");
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("contacts");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override

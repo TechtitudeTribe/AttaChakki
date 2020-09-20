@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:gravity="center"
+    tools:context="com.example.attachakki.EditProfile">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="255dp"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/editfirstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_widget"
+                    android:fontFamily="serif"
+                    android:hint="First Name"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:paddingTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:fontFamily="serif"
+                    android:textColor="#000000"
+                    android:background="@drawable/bg_widget"
+                    android:layout_marginTop="10dp"
+                    android:hint="Last Name"
+                    android:gravity="center"
+                    android:id="@+id/editlastname"/>
+
+                <EditText
+                    android:id="@+id/editCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/spinner1"
+                    android:background="@drawable/bg_widget"
+                    android:ems="10"
+                    android:fontFamily="serif"
+                    android:hint="Gender"
+                    android:paddingTop="10dp"
+                    android:textColor="#000000"
+                    android:paddingBottom="10dp"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+
+
+                <TextView
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="30dp"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="serif"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="end"
+                    android:background="@drawable/bg_widget"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:text="Update" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
