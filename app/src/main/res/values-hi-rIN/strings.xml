@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">अट्टा चक्की</string>
+
+    <string name="firstname">पहला नाम</string>
+    <string name="lastname">उपनाम</string>
+    <string name="companyname">कंपनी</string>
+    <string name="update">अपडेट करें</string>
+
+
+    <string name="logout">लॉग आउट</string>
+    <string name="edit">संपादित करें</string>
+    <string name="settings">समायोजन</string>
+    <string name="changeLanguage">भाषा बदलो</string>
+</resources>
