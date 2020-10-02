@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,11 +56,11 @@ public class EditProfile extends AppCompatActivity {
 
                     String firstName = dataSnapshot.child("First Name").getValue().toString();
                     String lastName = dataSnapshot.child("Last Name").getValue().toString();
-                    String company = dataSnapshot.child("Company").getValue().toString();
+                    String company = dataSnapshot.child("Gender").getValue().toString();
 
                     editfirstname.setText(firstName);
                     editlastname.setText(lastName);
-                    editCompany.setText("Company : " + company);
+                    editCompany.setText("Gender: " + company);
 
 
 
@@ -88,8 +91,22 @@ public class EditProfile extends AppCompatActivity {
                 HashMap userMap = new HashMap();
                 userMap.put("First Name", first);
                 userMap.put("Last Name", second);
-                userMap.put("Company", third);
+                userMap.put("Gender", third);
 
+                profileUserRef.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(getApplicationContext(),"Profile Info updated successfully...",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            {
+                            String message = task.getException().getMessage();
+                            Toast.makeText(getApplicationContext(),"Error Occurred : "+message,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 

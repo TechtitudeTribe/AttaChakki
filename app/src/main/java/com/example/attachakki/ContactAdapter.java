@@ -40,7 +40,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         }else{
             holder.photo.setImageResource(R.mipmap.ic_launcher_round);
         }
-
     }
 
     @Override

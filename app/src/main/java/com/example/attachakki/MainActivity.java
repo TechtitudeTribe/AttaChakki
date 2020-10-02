@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         login=findViewById(R.id.login);
         register=findViewById(R.id.register);
 
-        mAuthStateListner=new FirebaseAuth.AuthStateListener() {
+        mAuthStateListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser =mFirebaseAuth.getCurrentUser();

@@ -47,7 +47,6 @@ public class VerifyPhone extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser().getUid();
         stuRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser);
 
-
         String phonenumber=getIntent().getStringExtra("phonenumber");
         sendVerificationCode(phonenumber);
 
@@ -120,13 +119,13 @@ public class VerifyPhone extends AppCompatActivity {
                 });
     }
 
-
     private void sendVerificationCode(String number) {
         progressBar.setVisibility(View.VISIBLE);
         PhoneAuthProvider.getInstance().verifyPhoneNumber(number, 60, TimeUnit.SECONDS, TaskExecutors.MAIN_THREAD,mCallBack);
     }
+
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
-            mCallBack=new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
+            mCallBack=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         @Override
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken){
