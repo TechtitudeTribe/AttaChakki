@@ -61,7 +61,6 @@ public class VerifyPhone extends AppCompatActivity {
                     return;
                 }
                 verifyCode(code);
-
             }
         });
     }
