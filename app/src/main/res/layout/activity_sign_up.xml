@@ -7,7 +7,7 @@
     android:layout_width="match_parent">
 
     <LinearLayout
-        android:layout_height="350dp"
+        android:layout_height="150dp"
         android:layout_width="409dp"
         android:orientation="vertical"
         android:layout_marginTop="50dp"
@@ -32,70 +32,70 @@
 </LinearLayout>
 
     <LinearLayout
-        android:background="#00000000"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="440dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/email"
-        android:hint="E-mail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/ed_email"
-        android:inputType="textEmailAddress"/>
-
-</com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/password"
-        android:hint="Password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/ed_password"
-        android:inputType="textPassword"/>
-
-</com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:background="#000"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/continu"
-        android:layout_marginLeft="30dp"
-        android:text="CONTINUE"
-        android:layout_marginRight="30dp"
-        android:textColor="#fff"/>
-
-    <Button
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="20dp"
         android:background="#00000000"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/login"
-        android:text="Already have an Account?Login"
-        android:layout_margin="5dp"
-        android:layout_gravity="right"
-        android:elevation="0dp"/>
+        android:orientation="vertical">
 
-</LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="E-mail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/continu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000"
+            android:text="CONTINUE"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:text="Already have an Account?Login" />
+
+    </LinearLayout>
 
 </RelativeLayout>

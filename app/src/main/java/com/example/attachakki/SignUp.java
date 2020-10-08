@@ -1,5 +1,6 @@
 package com.example.attachakki;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,9 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
@@ -18,6 +24,7 @@ public class SignUp extends AppCompatActivity {
     TextInputEditText ed_email,ed_password;
     Button continu,login;
     FirebaseAuth mFirebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +52,19 @@ public class SignUp extends AppCompatActivity {
                 } else if (email.isEmpty() && pwd.isEmpty()) {
                     Toast.makeText(SignUp.this, "Fields are empty", Toast.LENGTH_SHORT).show();
                 } else if (!(email.isEmpty() && pwd.isEmpty())) {
-                    Intent intent = new Intent(SignUp.this, PhoneActivity.class);
-                    intent.putExtra("emailId",email);
-                    intent.putExtra("password",pwd);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(SignUp.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+                    mFirebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(SignUp.this, "SignUp Unsuccessful, please Try Again", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent = new Intent(SignUp.this, PhoneActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }
+                        }
+
+                    });
                 }
             }
         });

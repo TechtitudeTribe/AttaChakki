@@ -76,41 +76,7 @@ public class VerifyPhone extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            String first = getIntent().getStringExtra("firstName");
-                            String last = getIntent().getStringExtra("lastName");
-                            String comp = getIntent().getStringExtra("company");
-
-                            HashMap upload = new HashMap();
-                            upload.put("First Name", first);
-                            upload.put("Last Name", last);
-                            upload.put("Company", comp);
-
-                            stuRef.updateChildren(upload).addOnCompleteListener(new OnCompleteListener() {
-                                @Override
-                                public void onComplete(@NonNull Task task) {
-                                    if (task.isSuccessful()) {
-                                        String email = getIntent().getStringExtra("emailId");
-                                        String pwd = getIntent().getStringExtra("password");
-                                        mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(VerifyPhone.this, new OnCompleteListener<AuthResult>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                                if (!task.isSuccessful()) {
-                                                    Toast.makeText(VerifyPhone.this, "SignUp Unsuccessful, please Try Again", Toast.LENGTH_SHORT).show();
-                                                } else {
-                                                    Intent intent = new Intent(VerifyPhone.this, HomeActivity.class);
-                                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                    startActivity(intent);
-                                                }
-                                            }
-
-                                        });
-
-                                    } else {
-                                        String message = task.getException().getMessage();
-                                        Toast.makeText(getApplicationContext(), "Error Occurred : " + message, Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                            Intent i=new Intent(VerifyPhone.this,HomeActivity.class);
                         }
                         else{
                             Toast.makeText(VerifyPhone.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
